@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wordlist 6: Commerce — Vocabulary Quiz</title>
+<style>
+:root{
+  --ink:#3B2A1E; --deep:#6B4A2F; --coffee:#8A6342; --jade:#2F8A6A; --red:#A8402C;
+  --paper:#F5F0E6; --white:#fff; --line:#DCCFBA; --muted:#6F5E4C; --sand:#FBF7EE;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);
+  font-family:"Segoe UI",Roboto,system-ui,-apple-system,Arial,sans-serif;font-size:18px;line-height:1.55}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 64px}
+
+.bar{position:sticky;top:0;z-index:50;background:var(--ink);color:#fff;border-bottom:4px solid var(--jade)}
+.bar-in{max-width:960px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.brand{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:18px}
+.brand span{color:var(--jade)}
+.stats{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.stat{background:rgba(255,255,255,.13);border-radius:999px;padding:4px 13px;font-size:15px;font-weight:600;white-space:nowrap}
+.stat b{color:#E8C87A}
+.pbar{height:6px;background:rgba(255,255,255,.15)}
+.pbar>i{display:block;height:100%;width:0;background:var(--jade);transition:width .35s ease}
+
+h1{font-family:Georgia,"Times New Roman",serif;font-size:2.15rem;line-height:1.18;margin:.6em 0 .2em}
+h2{font-family:Georgia,serif;font-size:1.45rem;margin:1.4em 0 .5em}
+h3{font-size:1.1rem;margin:1.2em 0 .4em}
+.card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px;margin:18px 0}
+.btn{font:inherit;font-weight:700;cursor:pointer;border:none;border-radius:10px;padding:13px 22px;
+  background:var(--deep);color:#fff;transition:background .2s,transform .08s}
+.btn:hover{background:var(--coffee)}
+.btn:active{transform:translateY(1px)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.alt{background:#fff;color:var(--deep);border:2px solid var(--deep)}
+.btn.alt:hover{background:var(--sand)}
+.btn.gold{background:var(--jade);color:#fff}
+.btn.gold:hover{background:#36a07c}
+.btn.sm{padding:8px 15px;font-size:15px;border-radius:8px}
+:focus-visible{outline:3px solid var(--jade);outline-offset:2px}
+.hide{display:none !important}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.note{background:var(--sand);border-left:5px solid var(--coffee);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.ar{font-family:"Segoe UI",Tahoma,Arial,sans-serif;direction:rtl;font-size:1.1em}
+.hero{padding:30px 0 6px;border-bottom:2px solid var(--line)}
+.kicker{color:var(--jade);font-weight:700;font-size:14px;letter-spacing:1.4px;text-transform:uppercase}
+.lead{font-size:1.12rem;color:var(--muted);max-width:62ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;margin:20px 0}
+.tile{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px}
+.tile b{display:block;font-size:1.5rem;color:var(--deep);font-family:Georgia,serif}
+.tile small{color:var(--muted);font-size:14px}
+input[type=text]{font:inherit;padding:12px 14px;border:2px solid var(--line);border-radius:10px;width:100%;background:#fff;color:var(--ink)}
+input[type=text]:focus{border-color:var(--jade)}
+label.fld{display:block;font-weight:600;margin:14px 0 6px}
+
+.qhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+.sectag{background:var(--deep);color:#fff;border-radius:999px;padding:4px 14px;font-size:14px;font-weight:700}
+.qcount{color:var(--muted);font-size:15px;font-weight:600}
+.qtext{font-family:Georgia,serif;font-size:1.25rem;line-height:1.5;margin:14px 0 6px}
+.qsub{color:var(--muted);font-size:15px;margin-bottom:12px}
+.opt{display:block;width:100%;text-align:left;font:inherit;background:#fff;cursor:pointer;
+  border:2px solid var(--line);border-radius:11px;padding:14px 16px;margin:9px 0;transition:.15s}
+.opt:hover:not(:disabled){border-color:var(--coffee);background:var(--sand)}
+.opt .lt{display:inline-block;width:28px;height:28px;line-height:26px;text-align:center;border-radius:7px;
+  background:var(--sand);color:var(--deep);font-weight:700;margin-right:10px;font-size:15px}
+.opt.sel{border-color:var(--coffee);background:var(--sand)}
+.opt.sel .lt{background:var(--coffee);color:#fff}
+.opt.right{border-color:var(--jade);background:#E6F4EE}
+.opt.right .lt{background:var(--jade);color:#fff}
+.opt.wrong{border-color:var(--red);background:#FAEDE9}
+.opt.wrong .lt{background:var(--red);color:#fff}
+.opt:disabled{cursor:default}
+.fb{border-radius:11px;padding:14px 16px;margin:14px 0;font-size:1rem}
+.fb.ok{background:#E6F4EE;border-left:5px solid var(--jade)}
+.fb.no{background:#FAEDE9;border-left:5px solid var(--red)}
+.fb b{display:block;margin-bottom:4px;font-size:1.05rem}
+.hintbox{background:#FBF0D8;border-left:5px solid #C9972E;padding:12px 16px;border-radius:0 10px 10px 0;margin:12px 0}
+.ctx{background:var(--sand);border:1px solid var(--line);border-radius:12px;padding:16px;margin:8px 0 16px}
+.ctx h4{margin:0 0 8px;font-size:1rem;color:var(--deep);letter-spacing:.5px;text-transform:uppercase}
+.audio-ctl{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+table.tbl{width:100%;border-collapse:collapse;font-size:.95rem;background:#fff}
+table.tbl th,table.tbl td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+table.tbl th{background:var(--deep);color:#fff;font-weight:600}
+
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:18px 0 4px}
+.tab{font:inherit;font-weight:600;cursor:pointer;border:2px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:8px 18px}
+.tab.on{background:var(--deep);border-color:var(--deep);color:#fff}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.flip{perspective:1000px;height:170px;cursor:pointer}
+.flip-in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.on .flip-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;padding:14px;
+  display:flex;flex-direction:column;justify-content:center;border:1px solid var(--line);overflow:hidden}
+.face.front{background:#fff}
+.face.back{background:var(--deep);color:#fff;transform:rotateY(180deg)}
+.face .w{font-family:Georgia,serif;font-size:1.2rem;font-weight:700}
+.face .p{font-size:13px;color:var(--jade);font-weight:700}
+.face.back .p{color:#E8C87A}
+.face .d{font-size:13.5px;line-height:1.4;margin-top:6px}
+.face .a{font-size:1.15rem;margin-top:6px}
+
+.score-ring{font-family:Georgia,serif;font-size:4rem;font-weight:700;color:var(--deep);line-height:1}
+.breakdown{width:100%;border-collapse:collapse;margin-top:10px}
+.breakdown td{padding:8px 6px;border-bottom:1px solid var(--line);font-size:.98rem}
+.meter{height:10px;background:var(--sand);border-radius:99px;overflow:hidden;min-width:110px}
+.meter>i{display:block;height:100%}
+.cert{background:#fff;border:3px double var(--deep);border-radius:8px;padding:36px 28px;text-align:center;margin:20px 0}
+.cert h2{font-family:Georgia,serif;font-size:2rem;margin:.2em 0;color:var(--deep)}
+.cert .nm{font-family:Georgia,serif;font-size:2.1rem;border-bottom:2px solid var(--jade);display:inline-block;padding:0 24px 4px;margin:12px 0}
+.rev{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:10px 0;background:#fff}
+.rev .tag{font-size:13px;font-weight:700;color:#fff;background:var(--jade);border-radius:6px;padding:2px 8px}
+.rev.bad .tag{background:var(--red)}
+.foot{text-align:center;color:var(--muted);font-size:14px;padding:26px 0 10px;border-top:2px solid var(--line);margin-top:30px}
+
+@media (max-width:620px){
+  body{font-size:17px}
+  h1{font-size:1.7rem}
+  .qtext{font-size:1.12rem}
+  .stat{font-size:13.5px;padding:3px 10px}
+  .card{padding:16px}
+}
+@media print{.bar,.tabs,.btn,.noprint{display:none!important} body{background:#fff} .card{border:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:99}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="bar-in">
+    <div class="brand">Wordlist 6 <span>·</span> Commerce</div>
+    <div class="stats">
+      <div class="stat">Points <b id="sPts">0</b></div>
+      <div class="stat">Correct <b id="sCor">0</b>/50</div>
+      <div class="stat">Badges <b id="sBad">0</b></div>
+    </div>
+  </div>
+  <div class="pbar"><i id="pbar"></i></div>
+</div>
+
+<div class="wrap">
+
+<section id="vStart">
+  <div class="hero">
+    <div class="kicker">B1+ · IELTS Band 6 · 40 words · 50 questions</div>
+    <h1>Commerce: the vocabulary test</h1>
+    <p class="lead">The last list of the series, and the most useful one at work: money, jobs, meetings and
+    the language of asking for things professionally. Eight sections, with the questions and the answer
+    options in a different order every time you open the app.</p>
+  </div>
+
+  <div class="grid">
+    <div class="tile"><b>50</b><small>questions, one at a time</small></div>
+    <div class="tile"><b>8</b><small>IELTS-style sections</small></div>
+    <div class="tile"><b>80%</b><small>for your certificate</small></div>
+  </div>
+
+  <div class="card">
+    <label class="fld" for="nm">Your name (it goes on the certificate)</label>
+    <input type="text" id="nm" placeholder="e.g. Noura Al Qubaisi" autocomplete="name">
+    <div class="row" style="margin-top:16px">
+      <button class="btn" onclick="startQuiz()">Start the quiz</button>
+      <button class="btn alt" onclick="show('vGloss')">Study the 40 words first</button>
+      <button class="btn alt" onclick="document.getElementById('loadFile').click()">Load saved progress</button>
+      <input type="file" id="loadFile" accept=".json" class="hide" onchange="loadJSON(event)">
+    </div>
+  </div>
+
+  <div class="note"><b>Two things to know.</b> A hint costs 3 points, so try first. The phone-message section
+  uses your device's voice — turn the sound on, or use headphones.</div>
+</section>
+
+<section id="vGloss" class="hide">
+  <h1>The 40 words</h1>
+  <p class="lead">Tap a card to turn it over. Use the table view to print the list or save it as a PDF.</p>
+  <div class="tabs noprint">
+    <button class="tab on" id="tabCards" onclick="glossView('cards')">Flip cards</button>
+    <button class="tab" id="tabTable" onclick="glossView('table')">Printable table</button>
+    <button class="tab" onclick="window.print()">Print / save as PDF</button>
+    <button class="tab" onclick="show('vStart')">← Back</button>
+  </div>
+  <div id="glossCards" class="cards" style="margin-top:18px"></div>
+  <div id="glossTable" class="hide" style="margin-top:18px"></div>
+</section>
+
+<section id="vQuiz" class="hide">
+  <div class="card">
+    <div class="qhead">
+      <span class="sectag" id="qSec"></span>
+      <span class="qcount" id="qCount"></span>
+    </div>
+    <div id="qCtx"></div>
+    <div class="qtext" id="qText"></div>
+    <div class="qsub" id="qSub"></div>
+    <div id="qBody"></div>
+    <div id="qHint"></div>
+    <div id="qFb"></div>
+    <div class="row" style="margin-top:16px">
+      <button class="btn" id="btnCheck" onclick="checkAnswer()">Check answer</button>
+      <button class="btn gold hide" id="btnNext" onclick="nextQ()">Next question</button>
+      <button class="btn alt sm" id="btnHint" onclick="useHint()">Hint (−3 points)</button>
+    </div>
+  </div>
+</section>
+
+<section id="vRes" class="hide">
+  <div class="card" style="text-align:center">
+    <div id="rEmoji" style="font-size:3rem"></div>
+    <div class="score-ring" id="rScore">0%</div>
+    <div style="color:var(--muted);font-weight:600" id="rRaw"></div>
+    <h2 id="rMsg" style="margin-top:.4em"></h2>
+    <p id="rPts" style="color:var(--muted)"></p>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">How you did in each section</h3>
+    <table class="breakdown" id="rBreak"></table>
+  </div>
+  <div id="rCert"></div>
+  <div class="card noprint">
+    <h3 style="margin-top:0">What next</h3>
+    <div class="row">
+      <button class="btn" onclick="showReview()">Review every question</button>
+      <button class="btn alt" onclick="saveJSON()">Download my results (.json)</button>
+      <button class="btn alt" onclick="show('vGloss')">Back to the word list</button>
+      <button class="btn alt" onclick="resetAll()">Start again</button>
+    </div>
+  </div>
+  <div id="rReview"></div>
+</section>
+
+<div class="foot">Designed by: Nazila Motahari &nbsp;|&nbsp; Higher Colleges of Technology, Abu Dhabi &nbsp;|&nbsp; B1+ Vocabulary List 6 (Fall) — Commerce</div>
+</div>
+
+<canvas id="confetti" class="hide"></canvas>
+
+<script>
+/* ============================================================
+   WORD DATA — 40 words, HCT B1+ List 6 (Fall) "Commerce"
+   ============================================================ */
+const WORDS=[
+{w:"account",p:"noun",ar:"حِساب بَنكيّ",d:"An arrangement with a bank to keep your money there",ex:"I only have AED 50 in my bank account."},
+{w:"agency",p:"noun",ar:"وَكالة",d:"A business that provides a service",ex:"DNATA is a travel agency."},
+{w:"assistant",p:"noun",ar:"مُساعِد",d:"Someone whose job is to help a person who has a more important job",ex:"Maitha is an assistant to the director."},
+{w:"background",p:"noun",ar:"خَلفيّة",d:"A person's education and family",ex:"He was from a poor background."},
+{w:"branch",p:"noun",ar:"فَرع / غُصن",d:"One of many shops or offices that are part of a company; also one of the parts of a tree",ex:"Etisalat has branches in every emirate. / The fruit grows on the lower branches."},
+{w:"candidate",p:"noun",ar:"مُتَقَدِّم لِامتِحان",d:"Someone who is taking an exam",ex:"All candidates must bring their ID cards to the exam."},
+{w:"chairman; chairwoman",p:"noun",ar:"رَئيس / رَئيسة مَجلِس",d:"A man or woman who controls a meeting, a company or another organization",ex:"Omar Al Futtaim is the chairman of the Al Futtaim Group."},
+{w:"cheerful",p:"adjective",ar:"مَرِح / بَشوش",d:"Happy",ex:"Hessa's always smiling — she is so cheerful."},
+{w:"conference",p:"noun",ar:"مُؤتَمَر",d:"A large meeting, often lasting a few days, where people talk about a subject",ex:"Every August, all HCT teachers go to the annual conference."},
+{w:"confirm",p:"verb",ar:"يُؤَكِّد",d:"To make sure an arrangement will happen, often by phone or in writing",ex:"Could you call me to confirm the time and place of the meeting?"},
+{w:"couple",p:"noun",ar:"اِثنان / زَوجان",d:"Two or a few; also two people who are married or in a relationship",ex:"There were only a couple of people at the meeting. / Amna and Rashid are a married couple."},
+{w:"credit",p:"noun",ar:"اِئتِمان / رَصيد",d:"A way of buying something and paying later; also an amount of money in your account or on your phone",ex:"He bought the furniture on credit. / I didn't have enough credit to pay the bill."},
+{w:"deposit",p:"noun",ar:"عَربون / دَفعة أولى",d:"A payment that you make immediately when you decide to buy something",ex:"He made a 40,000 AED deposit on the car, which costs 100,000 AED."},
+{w:"direct",p:"adjective / verb",ar:"مُباشِر / يُرشِد / يُخرِج",d:"Going straight from one place to another without stopping; to show someone the way; to tell actors what to do",ex:"It's a direct flight to Istanbul. / Can you direct me to the manager's office? / 'Jaws' was directed by Steven Spielberg."},
+{w:"directly",p:"adverb",ar:"مُباشَرةً",d:"With no other person or thing involved or in between",ex:"Why don't you speak to him directly?"},
+{w:"duty",p:"noun",ar:"واجِب",d:"Something you must do because the law says so, or because it is right",ex:"Parents need to look after their children; it's their duty."},
+{w:"exchange",p:"noun / verb",ar:"تَبادُل / يُبادِل",d:"An occasion when you give something and get something else back; also a visit between students of two countries",ex:"I got USD 3.65 in exchange for AED 10. / Khaleeji traders exchanged pearls for items from India."},
+{w:"honestly",p:"adverb",ar:"بِصَراحة",d:"Used to say that you are telling the truth",ex:"Can I speak honestly?"},
+{w:"(be) in charge (of)",p:"phrase",ar:"مَسؤول عن",d:"To be responsible for something",ex:"Amna is in charge of organizing the project survey."},
+{w:"label",p:"noun",ar:"مُلصَق / عَلامة تِجاريّة",d:"A piece of paper giving information about the object it is attached to; also a company that makes clothes",ex:"The label on your clothes tells you how to wash it. / Her favourite designer label is Armani."},
+{w:"loan",p:"noun",ar:"قَرض",d:"Money that someone borrows",ex:"Rashid took a loan from the bank to pay for his new car."},
+{w:"owe",p:"verb",ar:"يَدين بِـ",d:"To have to pay money back to someone who gave you money in the past",ex:"Rashid took a loan and now he owes AED 150,000."},
+{w:"politically",p:"adverb",ar:"سِياسيّاً",d:"In a way that is connected with politics",ex:"Employment for young people is a politically important issue."},
+{w:"politician",p:"noun",ar:"سِياسيّ",d:"Someone who works in politics, especially a member of the government",ex:"Imran Khan was a cricket player before he became a politician."},
+{w:"politics",p:"noun",ar:"السِياسة",d:"Ideas and activities relating to how a country or area is governed",ex:"The Federal National Council is an example of politics in the UAE."},
+{w:"president",p:"noun",ar:"رَئيس الدَولة",d:"The highest political position in some countries, usually the leader of the government",ex:"Sheikh Khalifa is the president of the UAE."},
+{w:"promise",p:"verb / noun",ar:"يَعِد / وَعد",d:"To say that you will certainly do or give something; a statement that you will certainly do it",ex:"She promised her mother she would be home before 9. / I won't make any promises."},
+{w:"request",p:"noun / verb",ar:"طَلَب / يَطلُب",d:"The act of asking for something; to ask for something",ex:"You can make a request in writing. / The students requested extra time."},
+{w:"retire",p:"verb",ar:"يَتَقاعَد",d:"To leave your job and stop working because you are old",ex:"My father retired when he was 60."},
+{w:"role",p:"noun",ar:"دَور",d:"A part in a play or movie",ex:"In his latest movie, he plays the role of a superhero."},
+{w:"rude",p:"adjective",ar:"وَقِح / غَير مُهَذَّب",d:"Behaving in a way that is not polite and upsets other people",ex:"Using your mobile phone while your teacher is talking is a little rude."},
+{w:"signature",p:"noun",ar:"تَوقيع",d:"Your name written in your own way, which is difficult for someone else to copy",ex:"Sir, these papers need your signature."},
+{w:"social",p:"adjective",ar:"اِجتِماعيّ",d:"Relating to the things you do with other people for enjoyment when you are not working",ex:"She goes out every night with her friends; she has an active social life."},
+{w:"tax",p:"noun",ar:"ضَريبة",d:"Money that you have to pay to the government from what you earn or when you buy things",ex:"There is a 5% sales tax in the UAE."},
+{w:"technique",p:"noun",ar:"أُسلوب / تِقنيّة",d:"A particular way of doing something",ex:"Doctors are developing techniques for fighting cancer."},
+{w:"trade",p:"noun",ar:"تِجارة",d:"The buying and selling of large numbers of things, especially between countries",ex:"World trade increases every year."},
+{w:"transfer",p:"verb",ar:"يَنتَقِل / يُحَوِّل",d:"To move someone or something from one place to another",ex:"She wasn't happy in Abu Dhabi so she transferred to Dubai Women's College."},
+{w:"unemployed",p:"adjective",ar:"عاطِل عن العَمَل",d:"Not having a job",ex:"Ahmed has been unemployed for six months."},
+{w:"vote",p:"verb / noun",ar:"يُصَوِّت / تَصويت",d:"To choose someone or something in an election or meeting; the act of choosing in this way",ex:"The students voted not to take a break. / They didn't know what to do, so they took a vote."},
+{w:"wage",p:"noun",ar:"أجر",d:"The amount of money a person regularly gets for his or her job",ex:"His wages are only AED 3,000 a month."}
+];
+
+/* ============================================================
+   PHONE MESSAGE (listening section)
+   ============================================================ */
+const LISTEN_SCRIPT=
+"Good morning. This is Noura from the college Student Services office. "+
+"I'm calling about the annual conference in Dubai next month. "+
+"First, I can confirm your place — your name is on the list. "+
+"Second, there is a deposit of two hundred dirhams. "+
+"You can pay it at any branch of the bank, or you can transfer it online. "+
+"If you transfer it, please keep the receipt. "+
+"Third, we need your signature on the permission form before Thursday. An email is not enough, I'm afraid. "+
+"Fourth, Ms Al Ali is in charge of transport, so any questions about the bus should go directly to her. "+
+"And finally, please remember that the hotel does not take credit cards, so bring some cash. "+
+"Thank you, and goodbye.";
+
+const CALLCTX='<div class="ctx"><h4>Voicemail from Student Services</h4>'+
+ '<div class="audio-ctl"><button class="btn sm" onclick="playAudio()">▶ Play the message</button>'+
+ '<button class="btn alt sm" onclick="stopAudio()">■ Stop</button>'+
+ '<span style="font-size:14px;color:var(--muted)">Plays used: <b id="plays">0</b></span></div>'+
+ '<p style="margin:0;font-size:14.5px;color:var(--muted)">Answer in <b>one or two words</b>. Spelling counts.</p></div>';
+
+/* ============================================================
+   QUESTIONS — 50
+   ============================================================ */
+const SECTIONS=["Meaning in context","Word building","Professional English","Listening: phone message",
+ "Money words","Paraphrase match","Word partners","Spot the mistake"];
+const LISTEN_SECTION=3;
+
+const Q=[
+/* ---- 0. Meaning in context (8) ---- */
+{s:0,type:"mcq",q:"DNATA is a travel <b>agency</b>.",sub:"An <b>agency</b> is…",o:["a business that provides a service","a building where goods are stored","a group that controls an industry","a shop that sells its own products"],a:0,h:"Travel, recruitment and advertising all have these.",e:"An <b>agency</b> is a business that provides a service rather than making goods: <i>a travel agency, a recruitment agency</i>."},
+{s:0,type:"mcq",q:"Maitha is an <b>assistant</b> to the director.",sub:"An <b>assistant</b> is…",o:["someone who helps a more senior person","someone who owns part of the company","someone who trains the new members of staff","someone who answers the company's telephones"],a:0,h:"Look at the small word <i>to</i> after it.",e:"An <b>assistant</b> helps a person who has a more important job. <i>Assistant to the director</i> — note the preposition <i>to</i>."},
+{s:0,type:"mcq",q:"All <b>candidates</b> must bring their ID cards to the exam.",sub:"A <b>candidate</b> is…",o:["a person who is taking an exam","a person who marks the exam","a person who teaches the class","a person who owns the building"],a:0,h:"Who needs an ID card in an exam room?",e:"On your list, a <b>candidate</b> is someone taking an exam. In the news it also means someone trying to be elected or to get a job."},
+{s:0,type:"mcq",q:"Omar Al Futtaim is the <b>chairman</b> of the Al Futtaim Group.",sub:"A <b>chairman</b> or <b>chairwoman</b> is…",o:["a person who controls a company or meeting","a person who keeps the accounts of a company","a person who sells the products of a company","a person who designs the offices of a company"],a:0,h:"Think about who sits at the head of the table.",e:"A <b>chairman</b> or <b>chairwoman</b> controls a meeting, a company or another organization. The neutral form is <i>chair</i> or <i>chairperson</i>."},
+{s:0,type:"mcq",q:"Sheikh Khalifa was the <b>president</b> of the UAE.",sub:"A <b>president</b> is…",o:["the highest political leader of a country","the commander of a country's armed forces","the most senior judge in a law court","the owner of a country's largest company"],a:0,h:"It is the top political job, not a business one.",e:"A <b>president</b> holds the highest political position in some countries. Careful: in American companies <i>president</i> can also mean a senior manager."},
+{s:0,type:"mcq",q:"Parents need to look after their children; it's their <b>duty</b>.",sub:"A <b>duty</b> is…",o:["something you must do because it is right","something you choose to do for enjoyment","something you are paid extra money to do","something you plan to do in the future"],a:0,h:"It is about obligation, not choice.",e:"A <b>duty</b> is something you must do because the law says so or because it is right. At work, <i>duties</i> also means the tasks of your job."},
+{s:0,type:"mcq",q:"The <b>label</b> on your clothes tells you how to wash them.",sub:"Here, a <b>label</b> is…",o:["a paper giving information about an object","a machine that washes clothes at home","a shop that sells clothes at low prices","a mark that shows the clothes are damaged"],a:0,h:"It is attached to the thing it describes.",e:"A <b>label</b> gives information about the object it is attached to. A second meaning on your list is a clothing company: <i>a designer label</i>."},
+{s:0,type:"mcq",q:"World <b>trade</b> increases every year.",sub:"<b>Trade</b> is…",o:["the buying and selling of goods","the making of goods in factories","the transport of goods by ship","the price of goods in the shops"],a:0,h:"Two actions, usually between countries.",e:"<b>Trade</b> is the buying and selling of large numbers of things, especially between countries: <i>world trade, free trade, the trade in pearls</i>."},
+
+/* ---- 1. Word building (7) ---- */
+{s:1,type:"text",q:"Imran Khan was a cricket player before he became a ________.",sub:"Write the word for a <u>person</u> who works in politics.",a:"politician",acc:["politician"],h:"The ending is -ian, as in <i>musician</i>.",e:"<b>politics</b> (the subject) → <b>politician</b> (the person) → <i>political</i> / <i>politically</i> (describing words)."},
+{s:1,type:"text",q:"Employment for young people is a ________ important issue.",sub:"Write the adverb form of <b>political</b>.",a:"politically",acc:["politically"],h:"It describes the adjective <i>important</i>, so you need an adverb.",e:"<b>political</b> → <b>politically</b>. The -ly form can describe an adjective: <i>politically important, economically useful</i>."},
+{s:1,type:"text",q:"The Federal National Council is an example of ________ in the UAE.",sub:"Write the noun for the subject itself.",a:"politics",acc:["politics"],h:"It looks plural but it is treated as singular.",e:"<b>politics</b> = ideas and activities about how a country is governed. Like <i>economics</i> and <i>mathematics</i>, it takes a singular verb."},
+{s:1,type:"text",q:"Sir, these papers need your ________.",sub:"Write the noun form of <b>sign</b>.",a:"signature",acc:["signature"],h:"It is your own name, written your own way.",e:"<b>sign</b> (verb) → <b>signature</b> (noun). Watch the spelling: sign<b>a</b>ture."},
+{s:1,type:"text",q:"Ahmed has been ________ for six months and is still looking for work.",sub:"Make <b>employed</b> negative.",a:"unemployed",acc:["unemployed"],h:"Add a two-letter prefix.",e:"<b>employed</b> → <b>unemployed</b> = not having a job. The noun is <i>unemployment</i>, very common in IELTS Writing Task 2."},
+{s:1,type:"text",q:"Why don't you speak to him ________ instead of sending a message?",sub:"Write the adverb form of <b>direct</b>.",a:"directly",acc:["directly"],h:"It describes <i>how</i> you speak to him.",e:"<b>direct</b> (adjective) → <b>directly</b> (adverb) = with nobody in between: <i>report directly to the manager</i>."},
+{s:1,type:"text",q:"Hessa is always smiling; she is so ________.",sub:"Make an adjective from <b>cheer</b> meaning 'happy'.",a:"cheerful",acc:["cheerful"],h:"The suffix means 'full of'.",e:"<b>cheer</b> → <b>cheerful</b>. The suffix <i>-ful</i> also gives <i>useful, careful, helpful, successful</i>."},
+
+/* ---- 2. Professional English (6) ---- */
+{s:2,type:"mcq",q:"You want to be sure the meeting is still happening on Sunday.",sub:"Which message is the professional one?",o:["Could you confirm the time of Sunday's meeting?","Tell me if Sunday's meeting is still happening.","Is Sunday meeting on or not? Reply quickly."],a:0,h:"One verb on your list means 'make sure an arrangement will happen'.",e:"<b>Confirm</b> is the professional verb here. The other two give an order rather than asking, which sounds <i>rude</i> in an email to a manager."},
+{s:2,type:"mcq",q:"The students want extra time for their project.",sub:"Which sentence is the professional one?",o:["The students requested extra time for the work.","The students demanded extra time for the work.","The students wanted extra time for their work."],a:0,h:"One of these verbs means 'ask for' politely.",e:"<b>Request</b> = ask for something. <i>Demand</i> is much stronger and sounds aggressive; <i>wanted</i> simply states a wish and asks for nothing."},
+{s:2,type:"mcq",q:"You are not sure you can finish the report by Thursday.",sub:"Which reply is best?",o:["I'm not sure, so I won't make any promises.","I promise it will be finished by Thursday.","Thursday is fine, no problem at all for me."],a:0,h:"A <b>promise</b> says something will <u>certainly</u> happen.",e:"A <b>promise</b> means it will certainly happen, so you only make one when you are sure. Promising what you cannot deliver costs more trust than saying no."},
+{s:2,type:"mcq",q:"Using your mobile phone while your teacher is talking is a little ________.",sub:"Which word fits?",o:["rude","social","direct","cheerful"],a:0,h:"It describes behaviour that upsets other people.",e:"<b>Rude</b> = not polite, and it upsets other people. <i>Direct</i> is not the same: being direct means being clear, which is usually a good thing at work."},
+{s:2,type:"mcq",q:"“Can I speak <b>honestly</b>?”",sub:"Why does a speaker say this before giving an opinion?",o:["To warn that the opinion may not be welcome","To show that the opinion is only a joke","To ask the other person for an opinion"],a:0,h:"People say it before saying something difficult.",e:"<b>Honestly</b> says you are telling the truth. Before an opinion it warns the listener that what follows may be uncomfortable."},
+{s:2,type:"mcq",q:"A visitor cannot find the manager's office.",sub:"Which request is correct English?",o:["Can you direct me to the manager's office?","Can you direct me the manager's office?","Can you direct to me the manager's office?"],a:0,h:"The pattern is <i>direct somebody <u>to</u> a place</i>.",e:"<b>Direct somebody to a place</b> = show them how to get there. The preposition <i>to</i> is not optional."},
+
+/* ---- 3. Listening: phone message (7) ---- */
+{s:3,type:"text",call:1,q:"What event is the message about?",sub:"Write ONE OR TWO WORDS.",a:"conference",acc:["conference","the conference","annual conference","the annual conference"],h:"A large meeting lasting a few days.",e:"<b>(the annual) conference</b> in Dubai next month. A <i>conference</i> is a large meeting where people talk about a subject."},
+{s:3,type:"text",call:1,q:"What does Noura say she can do about the student's place on the list?",sub:"Write ONE WORD — a verb.",a:"confirm",acc:["confirm"],h:"It means 'make sure the arrangement will happen'.",e:"She says <i>I can <b>confirm</b> your place</i>. In IELTS Listening, booking and arrangement sections use this verb constantly."},
+{s:3,type:"text",call:1,q:"What payment of two hundred dirhams must the student make?",sub:"Write ONE WORD.",a:"deposit",acc:["deposit","a deposit"],h:"You pay it when you decide to buy or book something.",e:"A <b>deposit</b> is a payment you make immediately when you decide to buy or book something — the rest is paid later."},
+{s:3,type:"text",call:1,q:"Where can the money be paid, apart from online?",sub:"Write ONE OR TWO WORDS.",a:"branch",acc:["branch","a branch","any branch","bank branch"],h:"One of many offices belonging to the same company.",e:"At any <b>branch</b> of the bank. A <i>branch</i> is one of the many offices or shops of one company."},
+{s:3,type:"text",call:1,q:"What does the permission form need before Thursday?",sub:"Write ONE OR TWO WORDS.",a:"signature",acc:["signature","a signature","your signature","the signature"],h:"Your own name, written your own way.",e:"The form needs a <b>signature</b>. Noura adds that an email is not enough — a signature has to be written."},
+{s:3,type:"text",call:1,q:"Who is in charge of transport?",sub:"Write ONE OR TWO WORDS.",a:"Ms Al Ali",acc:["ms al ali","al ali","miss al ali","mrs al ali"],h:"Listen for a name just after the phrase <i>in charge of</i>.",e:"<b>Ms Al Ali</b> is <i>in charge of</i> transport — that phrase means she is responsible for it."},
+{s:3,type:"text",call:1,q:"What kind of cards does the hotel NOT accept?",sub:"Write ONE WORD.",a:"credit",acc:["credit","credit cards"],h:"A way of buying now and paying later.",e:"The hotel does not take <b>credit</b> cards, so the student must bring cash. <i>Credit</i> is buying now and paying at a later time."},
+
+/* ---- 4. Money words (6) ---- */
+{s:4,type:"mcq",q:"Money that someone borrows from a bank is called a…",sub:"",o:["loan","wage","deposit","tax"],a:0,h:"Rashid took one to pay for his car.",e:"A <b>loan</b> is money that someone borrows. The verb for having to pay it back is <b>owe</b>: <i>he owes the bank AED 150,000</i>."},
+{s:4,type:"mcq",q:"A payment you make immediately when you decide to buy something is a…",sub:"",o:["deposit","account","exchange","wage"],a:0,h:"40,000 of the 100,000 for the car.",e:"A <b>deposit</b> is the first payment, made straight away. The rest is paid later, sometimes on <i>credit</i>. An <i>account</i> holds money; an <i>exchange</i> swaps one thing for another."},
+{s:4,type:"mcq",q:"Money you pay to the government when you buy things is called…",sub:"",o:["tax","credit","trade","duty"],a:0,h:"In the UAE this is 5% on sales.",e:"<b>Tax</b> is money paid to the government from what you earn or buy. Careful: <i>duty</i> on your list means an obligation, not a payment."},
+{s:4,type:"mcq",q:"The money a person regularly gets for a job is called a…",sub:"",o:["wage","loan","deposit","credit"],a:0,h:"AED 3,000 a month, for example.",e:"A <b>wage</b> is the money a worker regularly receives. <i>Salary</i> is the same idea, usually paid monthly to office staff."},
+{s:4,type:"mcq",q:"Rashid borrowed AED 150,000 and has not paid it back yet, so he ________ the bank that money.",sub:"",o:["owes","pays","lends","earns"],a:0,h:"The verb describes the debt, not the paying.",e:"<b>Owe somebody money</b> = you have to pay it back. Note the pattern: <i>he owes the bank AED 150,000</i>, with no preposition."},
+{s:4,type:"mcq",q:"An arrangement with a bank to keep your money there is called an…",sub:"",o:["account","agency","exchange","assistant"],a:0,h:"You open one, and your salary goes into it.",e:"An <b>account</b> is the arrangement with the bank. The money available in it can also be called your <i>credit</i>."},
+
+/* ---- 5. Paraphrase match (6) ---- */
+{s:5,type:"mcq",q:"He was from a poor <b>background</b>.",sub:"Which sentence means the same?",o:["His family had little money when he was young.","He had no interest in studying when young.","He lived in a poor country when he was young."],a:0,h:"Background is about family and education.",e:"<b>Background</b> = a person's education and family. In a job interview, <i>tell me about your background</i> asks about your studies and experience."},
+{s:5,type:"mcq",q:"There were only a <b>couple</b> of people at the meeting.",sub:"Which sentence means the same?",o:["Very few people came to the meeting.","Nobody came to the meeting at all.","The meeting was crowded with people."],a:0,h:"A couple is two, or a few.",e:"<b>A couple of</b> = two, or a few. The second meaning on your list is two people who are married or in a relationship."},
+{s:5,type:"mcq",q:"I got USD 3.65 in <b>exchange</b> for AED 10.",sub:"Which sentence means the same?",o:["He gave dirhams and received dollars back.","He bought dollars and then sold them.","He saved dollars and dirhams in a bank."],a:0,h:"Something goes one way, something comes back.",e:"An <b>exchange</b> is when you give something and get something else back. The verb works the same way: <i>traders exchanged pearls for rice</i>."},
+{s:5,type:"mcq",q:"My father <b>retired</b> when he was sixty.",sub:"Which sentence means the same?",o:["He stopped working because of his age.","He was asked to leave his job suddenly.","He moved to a different company then."],a:0,h:"It happens at the end of a working life.",e:"<b>Retire</b> = leave your job and stop working because you are old. Being asked to leave would be <i>dismissed</i> or <i>made redundant</i>."},
+{s:5,type:"mcq",q:"She goes out every night with her friends; she has an active <b>social</b> life.",sub:"Which sentence means the same?",o:["She spends her free time with other people.","She works with other people every evening.","She studies with other people after class."],a:0,h:"Social life is what you do when you are not working.",e:"<b>Social</b> describes what you do with other people for enjoyment outside work. Note also <i>social media</i> and <i>social problems</i>."},
+{s:5,type:"mcq",q:"In his latest movie, he plays the <b>role</b> of a superhero.",sub:"Which sentence means the same?",o:["He plays a superhero character in the film.","He directed a film about a famous superhero.","He wrote the story of a superhero film."],a:0,h:"A role is a part in a play or a film.",e:"A <b>role</b> is a part in a play or movie. At work it has a second use: <i>my role in the team</i> means the job you do in it."},
+
+/* ---- 6. Word partners (7) ---- */
+{s:6,type:"mcq",q:"Amna is in ________ of organizing the project survey.",sub:"",o:["charge","control","power","duty"],a:0,h:"The whole phrase means 'responsible for'.",e:"<b>be in charge of</b> something = be responsible for it. The preposition is always <i>of</i>, never <i>for</i>."},
+{s:6,type:"mcq",q:"If you want the information, you can ________ a request in writing.",sub:"",o:["make","do","take","give"],a:0,h:"The same verb goes with <i>a promise</i>.",e:"<b>make a request</b>, <b>make a promise</b>, <b>make a decision</b>. English uses <i>make</i>, not <i>do</i>, with all of these."},
+{s:6,type:"mcq",q:"They didn't know what to do, so they ________ a vote.",sub:"",o:["took","made","did","gave"],a:0,h:"The same verb goes with <i>a break</i> and <i>a photo</i>.",e:"<b>take a vote</b> — like <i>take a break, take a decision, take a photo</i>. The verb <b>vote</b> itself needs no object: <i>they voted to finish early</i>."},
+{s:6,type:"mcq",q:"I'd like to ________ an account at your bank, please.",sub:"",o:["open","start","build","begin"],a:0,h:"The opposite action is <i>close</i>.",e:"You <b>open</b> a bank account and later <b>close</b> it. <i>Start</i> and <i>begin</i> are not used with <i>account</i>."},
+{s:6,type:"mcq",q:"Everyone who buys something in the UAE has to ________ tax.",sub:"",o:["pay","give","make","do"],a:0,h:"The same verb goes with <i>a bill</i>.",e:"<b>pay tax</b>, <b>pay a bill</b>, <b>pay a deposit</b>. You can also <i>pay somebody back</i> when you <b>owe</b> them money."},
+{s:6,type:"mcq",q:"Doctors are developing new ________ for fighting cancer.",sub:"",o:["techniques","branches","exchanges","signatures"],a:0,h:"It means particular ways of doing something.",e:"A <b>technique</b> is a particular way of doing something. In IELTS Writing: <i>new techniques, modern techniques, teaching techniques</i>."},
+{s:6,type:"mcq",q:"She wasn't happy in Abu Dhabi, so she decided to ________ to Dubai Women's College.",sub:"",o:["transfer","exchange","confirm","promise"],a:0,h:"It means moving from one place to another.",e:"<b>transfer</b> = move from one place to another. It works for people, money and files: <i>she transferred to Dubai, transfer the money to my account</i>."},
+
+/* ---- 7. Spot the mistake (3) ---- */
+{s:7,type:"mcq",q:"“Amna is in charge <u>for</u> organizing the project survey.”",sub:"One word is wrong. Choose the correction.",o:["in charge of","in charge with","in charge to","in charge on"],a:0,h:"Learn the phrase with its preposition as one item.",e:"<b>in charge of</b>. Arabic-speaking learners often choose <i>for</i> here, because the idea of responsibility suggests it — but English fixes this phrase with <i>of</i>."},
+{s:7,type:"mcq",q:"“Rashid owes <u>to</u> the bank AED 150,000.”",sub:"One word is wrong. Choose the correction.",o:["owes the bank","owes for the bank","owes at the bank","owes with the bank"],a:0,h:"This verb takes the person first, with no preposition.",e:"<b>owe somebody money</b> — no preposition: <i>he owes the bank AED 150,000</i>, <i>I owe you ten dirhams</i>."},
+{s:7,type:"mcq",q:"“The students requested <u>for</u> extra time to finish the project.”",sub:"One word is wrong. Choose the correction.",o:["requested extra time","requested of extra time","requested to extra time","requested about extra time"],a:0,h:"<i>Request</i> already contains the idea of <i>for</i>.",e:"<b>request something</b> — no preposition. Compare <i>ask <u>for</u> extra time</i>, which does need one. That difference is what causes the mistake."}
+];
+
+/* ============================================================
+   STATE
+   ============================================================ */
+const STATE={name:"",i:0,pts:0,correct:0,badges:[],answers:[],hinted:[],plays:0,streak:0,done:false};
+const $=id=>document.getElementById(id);
+function show(id){["vStart","vGloss","vQuiz","vRes"].forEach(v=>$(v).classList.add("hide"));$(id).classList.remove("hide");window.scrollTo(0,0);}
+function norm(s){return (s||"").toLowerCase().trim().replace(/[.,!?;:'"()]/g,"").replace(/\s+/g," ");}
+function esc(s){return (s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function updateBar(){$("sPts").textContent=STATE.pts;$("sCor").textContent=STATE.correct;
+  $("sBad").textContent=STATE.badges.length;$("pbar").style.width=(STATE.i/Q.length*100)+"%";}
+
+/* ---------- randomisation ----------
+   Questions inside each section, and options inside each question, are shuffled on every load.
+   The phone-message section keeps its order, because those questions follow the recording. */
+Q.forEach((q,i)=>q.id=i);
+function shuffle(arr){
+  for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=arr[i];arr[i]=arr[j];arr[j]=t;}
+  return arr;
+}
+function shuffleQuestions(){
+  const out=[];
+  for(let s=0;s<SECTIONS.length;s++){
+    const group=Q.filter(q=>q.s===s);
+    if(s!==LISTEN_SECTION) shuffle(group);
+    out.push(...group);
+  }
+  Q.length=0; out.forEach(q=>Q.push(q));
+}
+function shuffleOptions(){
+  Q.forEach(q=>{
+    if(q.type!=="mcq") return;
+    const idx=shuffle(q.o.map((_,i)=>i));
+    q.o=idx.map(i=>q.o[i]);
+    q.a=idx.indexOf(q.a);
+  });
+}
+
+/* ---------- glossary ---------- */
+function buildGloss(){
+  $("glossCards").innerHTML=WORDS.map(w=>
+    '<div class="flip" onclick="this.classList.toggle(\'on\')" tabindex="0" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();this.classList.toggle(\'on\')}">'+
+    '<div class="flip-in"><div class="face front"><div class="p">'+w.p+'</div><div class="w">'+w.w+'</div>'+
+    '<div class="d" style="color:var(--muted);margin-top:8px">Tap to see the meaning</div></div>'+
+    '<div class="face back"><div class="p">'+w.p+'</div><div class="d">'+w.d+'</div><div class="a ar">'+w.ar+'</div></div>'+
+    '</div></div>').join("");
+  $("glossTable").innerHTML='<table class="tbl"><tr><th style="width:34px">#</th><th>Word</th><th>Part of speech</th><th>Meaning</th><th>Arabic</th><th>Example</th></tr>'+
+    WORDS.map((w,i)=>'<tr><td>'+(i+1)+'</td><td><b>'+w.w+'</b></td><td>'+w.p+'</td><td>'+w.d+'</td><td class="ar">'+w.ar+'</td><td><i>'+w.ex+'</i></td></tr>').join("")+'</table>';
+}
+function glossView(v){
+  $("glossCards").classList.toggle("hide",v!=="cards");
+  $("glossTable").classList.toggle("hide",v!=="table");
+  $("tabCards").classList.toggle("on",v==="cards");
+  $("tabTable").classList.toggle("on",v==="table");
+}
+
+/* ---------- quiz ---------- */
+function startQuiz(){STATE.name=$("nm").value.trim()||"Student";show("vQuiz");renderQ();}
+
+function renderQ(){
+  const q=Q[STATE.i];
+  $("qSec").textContent=SECTIONS[q.s];
+  $("qCount").textContent="Question "+(STATE.i+1)+" of "+Q.length;
+  $("qText").innerHTML=q.q; $("qSub").innerHTML=q.sub||"";
+  $("qFb").innerHTML=""; $("qHint").innerHTML="";
+  $("btnCheck").classList.remove("hide");
+  $("btnNext").classList.add("hide");
+  $("btnHint").classList.remove("hide"); $("btnHint").disabled=false;
+
+  $("qCtx").innerHTML = q.call ? CALLCTX : "";
+  const p=$("plays"); if(p) p.textContent=STATE.plays;
+
+  if(q.type==="mcq"){
+    $("qBody").innerHTML=q.o.map((o,i)=>
+      '<button class="opt" data-i="'+i+'" onclick="pick(this)"><span class="lt">'+"ABCDE"[i]+'</span>'+o+'</button>').join("");
+  } else {
+    $("qBody").innerHTML='<input type="text" id="ansIn" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type your answer">';
+    $("ansIn").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();$("btnCheck").classList.contains("hide")?nextQ():checkAnswer();}});
+    setTimeout(()=>{const el=$("ansIn");if(el)el.focus();},60);
+  }
+  updateBar();
+}
+
+let picked=null;
+function pick(btn){
+  if(btn.disabled) return;
+  document.querySelectorAll("#qBody .opt").forEach(b=>b.classList.remove("sel"));
+  btn.classList.add("sel"); picked=+btn.dataset.i;
+}
+function toast(m){const d=document.createElement("div");d.textContent=m;
+  d.style.cssText="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:11px 18px;border-radius:10px;z-index:200;font-size:15px;max-width:90%";
+  document.body.appendChild(d);setTimeout(()=>d.remove(),2600);}
+
+function useHint(){
+  const q=Q[STATE.i];
+  if(STATE.hinted.includes(STATE.i)) return;
+  STATE.hinted.push(STATE.i); STATE.pts=Math.max(0,STATE.pts-3);
+  $("qHint").innerHTML='<div class="hintbox"><b>Hint:</b> '+q.h+'</div>';
+  $("btnHint").disabled=true; updateBar();
+}
+
+function checkAnswer(){
+  const q=Q[STATE.i]; let ok=false, given="";
+  if(q.type==="mcq"){
+    if(picked===null){toast("Choose an answer first.");return;}
+    ok=picked===q.a; given=q.o[picked];
+    document.querySelectorAll("#qBody .opt").forEach(b=>{
+      const i=+b.dataset.i; b.disabled=true; b.classList.remove("sel");
+      if(i===q.a) b.classList.add("right"); else if(i===picked) b.classList.add("wrong");
+    });
+  } else {
+    const v=$("ansIn").value;
+    if(!v.trim()){toast("Type an answer first.");return;}
+    given=v.trim(); ok=q.acc.some(a=>norm(a)===norm(v));
+    $("ansIn").disabled=true;
+    $("ansIn").style.borderColor=ok?"var(--jade)":"var(--red)";
+  }
+  STATE.answers[STATE.i]={given:given,correct:ok};
+  if(ok){
+    STATE.correct++; STATE.streak++;
+    let add=10; if(STATE.streak%5===0){add+=5;toast("🔥 "+STATE.streak+" in a row — bonus 5 points!");}
+    STATE.pts+=add;
+    $("qFb").innerHTML='<div class="fb ok"><b>Correct — +'+add+' points</b>'+q.e+'</div>';
+  } else {
+    STATE.streak=0;
+    const right=q.type==="text"?q.a:"ABCDE"[q.a]+" — "+q.o[q.a];
+    $("qFb").innerHTML='<div class="fb no"><b>Not this time. The answer is: '+right+'</b>'+q.e+'</div>';
+  }
+  checkBadges();
+  $("btnCheck").classList.add("hide");
+  $("btnNext").classList.remove("hide");
+  $("btnHint").classList.add("hide");
+  picked=null; updateBar(); $("btnNext").focus();
+}
+
+function sectionScore(si){
+  let n=0; Q.forEach((q,k)=>{if(q.s===si&&STATE.answers[k]&&STATE.answers[k].correct)n++;});
+  return n;
+}
+const BADGES=[
+ {id:"first",t:"First Word",c:s=>s.correct>=1},
+ {id:"ten",t:"Ten Up",c:s=>s.correct>=10},
+ {id:"money",t:"Good With Money",c:()=>sectionScore(4)>=5},
+ {id:"half",t:"Halfway There",c:s=>s.i>=25},
+ {id:"ear",t:"Message Received",c:()=>sectionScore(3)>=6},
+ {id:"streak",t:"On Fire",c:s=>s.streak>=8},
+ {id:"forty",t:"Forty Right",c:s=>s.correct>=40}
+];
+function checkBadges(){
+  BADGES.forEach(b=>{if(!STATE.badges.includes(b.id)&&b.c(STATE)){STATE.badges.push(b.id);toast("🏅 Badge unlocked: "+b.t);}});
+}
+function nextQ(){stopAudio();STATE.i++;if(STATE.i>=Q.length){finish();return;}renderQ();}
+
+function playAudio(){
+  if(!("speechSynthesis" in window)){toast("Your browser cannot play this audio.");return;}
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(LISTEN_SCRIPT);
+  u.rate=.9; u.lang="en-GB";
+  window.speechSynthesis.speak(u);
+  STATE.plays++; const p=$("plays"); if(p)p.textContent=STATE.plays;
+}
+function stopAudio(){if("speechSynthesis" in window)window.speechSynthesis.cancel();}
+
+/* ---------- results ---------- */
+function finish(){
+  STATE.done=true;
+  const pct=Math.round(STATE.correct/Q.length*100);
+  $("pbar").style.width="100%";
+  $("rScore").textContent=pct+"%";
+  $("rRaw").textContent=STATE.correct+" out of "+Q.length+" correct";
+  $("rPts").textContent=STATE.pts+" points · "+STATE.badges.length+" badges · "+STATE.hinted.length+" hints used";
+  let emoji,msg;
+  if(pct>=90){emoji="🏆";msg="Outstanding. This vocabulary is ready for the exam.";}
+  else if(pct>=80){emoji="🎉";msg="Strong work — you have earned your certificate.";}
+  else if(pct>=65){emoji="👍";msg="A good result. Review the weak sections below and try again.";}
+  else if(pct>=50){emoji="📊";msg="You know about half of this list. Study the word cards, then come back.";}
+  else{emoji="🔁";msg="Start with the 40 word cards. Learn them, then take the quiz again.";}
+  $("rEmoji").textContent=emoji; $("rMsg").textContent=msg;
+
+  $("rBreak").innerHTML=SECTIONS.map((name,si)=>{
+    let tot=0; Q.forEach(q=>{if(q.s===si)tot++;});
+    const got=sectionScore(si), p=Math.round(got/tot*100);
+    return '<tr><td style="width:44%">'+name+'</td><td style="width:15%"><b>'+got+'/'+tot+'</b></td>'+
+      '<td><div class="meter"><i style="width:'+p+'%;background:'+(p>=80?"var(--jade)":p>=50?"#C9972E":"var(--red)")+'"></i></div></td></tr>';
+  }).join("");
+
+  if(pct>=80){
+    $("rCert").innerHTML='<div class="cert"><div style="font-size:2.8rem">🏅</div>'+
+      '<div style="letter-spacing:2px;color:var(--jade);font-weight:700;font-size:14px">Higher Colleges of Technology · Abu Dhabi</div>'+
+      '<h2>Certificate of Achievement</h2><p style="margin:0;color:var(--muted)">This certifies that</p>'+
+      '<div class="nm">'+esc(STATE.name)+'</div>'+
+      '<p style="max-width:46ch;margin:8px auto">has successfully completed the <b>B1+ Vocabulary List 6 (Fall): Commerce</b> quiz, '+
+      'scoring <b>'+pct+'%</b> ('+STATE.correct+'/'+Q.length+') across all eight sections.</p>'+
+      '<p style="color:var(--muted);font-size:15px">'+new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"})+'</p>'+
+      '<p style="font-style:italic;margin-top:18px">Designed by: Nazila Motahari</p>'+
+      '<button class="btn gold noprint" onclick="window.print()" style="margin-top:10px">Print / save the certificate</button></div>';
+    confetti();
+  } else {
+    $("rCert").innerHTML='<div class="note"><b>Certificate: not yet.</b> You need 80% (40 out of 50). You are '+
+      (40-STATE.correct)+' question'+((40-STATE.correct)===1?"":"s")+' away. Review your answers, study the cards, and take it again.</div>';
+  }
+  show("vRes");
+}
+
+function showReview(){
+  const html=SECTIONS.map((name,si)=>{
+    const items=Q.map((q,k)=>({q,k})).filter(x=>x.q.s===si).map(({q,k})=>{
+      const a=STATE.answers[k]||{given:"(no answer)",correct:false};
+      const right=q.type==="text"?q.a:q.o[q.a];
+      return '<div class="rev'+(a.correct?"":" bad")+'"><span class="tag">'+(a.correct?"Correct":"Wrong")+'</span> '+
+        '<b>Q'+(k+1)+'.</b> '+q.q+'<br><span style="color:var(--muted);font-size:15px">Your answer: '+esc(a.given)+
+        (a.correct?"":' &nbsp;·&nbsp; Correct answer: <b style="color:var(--jade)">'+right+'</b>')+'</span>'+
+        '<div style="font-size:15px;margin-top:6px">'+q.e+'</div></div>';
+    }).join("");
+    return '<h3>'+name+'</h3>'+items;
+  }).join("");
+  $("rReview").innerHTML='<div class="card"><h2 style="margin-top:0">Every question, with the reason</h2>'+html+'</div>';
+  const rv=$("rReview"); if(rv.scrollIntoView) rv.scrollIntoView({behavior:"smooth"});
+}
+
+/* ---------- save / load ---------- */
+function saveJSON(){
+  const pct=Math.round(STATE.correct/Q.length*100);
+  const data={app:"B1+ Wordlist 6 (Commerce) Vocabulary Quiz",student:STATE.name,date:new Date().toISOString(),
+    score:STATE.correct,outOf:Q.length,percent:pct,points:STATE.pts,badges:STATE.badges,hintsUsed:STATE.hinted.length,
+    sections:SECTIONS.map((n,si)=>{let tot=0;Q.forEach(q=>{if(q.s===si)tot++;});return {section:n,correct:sectionScore(si),outOf:tot};}),
+    answers:Q.map((q,k)=>({n:k+1,section:SECTIONS[q.s],question:q.q.replace(/<[^>]+>/g,""),
+      given:(STATE.answers[k]||{}).given||"",correct:!!(STATE.answers[k]||{}).correct})),
+    state:{i:STATE.i,pts:STATE.pts,correct:STATE.correct,badges:STATE.badges,answers:STATE.answers,hinted:STATE.hinted,done:STATE.done,
+      order:Q.map(q=>q.id)}};
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="Wordlist6-Commerce-"+(STATE.name||"student").replace(/\s+/g,"-")+".json";
+  a.click(); URL.revokeObjectURL(a.href);
+  toast("Saved. Send this file to your teacher.");
+}
+function loadJSON(ev){
+  const f=ev.target.files[0]; if(!f)return;
+  const r=new FileReader();
+  r.onload=()=>{try{
+    const d=JSON.parse(r.result); if(!d.state)throw 0;
+    STATE.name=d.student||"Student";
+    Object.assign(STATE,{i:d.state.i||0,pts:d.state.pts||0,correct:d.state.correct||0,
+      badges:d.state.badges||[],answers:d.state.answers||[],hinted:d.state.hinted||[],done:!!d.state.done});
+    if(Array.isArray(d.state.order)&&d.state.order.length===Q.length){
+      const byId={}; Q.forEach(q=>byId[q.id]=q);
+      const back=d.state.order.map(id=>byId[id]).filter(Boolean);
+      if(back.length===Q.length){ Q.length=0; back.forEach(q=>Q.push(q)); }
+    }
+    $("nm").value=STATE.name;
+    if(STATE.done){finish();} else {show("vQuiz");renderQ();}
+    toast("Progress restored for "+STATE.name+".");
+  }catch(e){toast("That file could not be read. Choose a file saved by this app.");}};
+  r.readAsText(f); ev.target.value="";
+}
+function resetAll(){
+  stopAudio();
+  Object.assign(STATE,{i:0,pts:0,correct:0,badges:[],answers:[],hinted:[],plays:0,streak:0,done:false});
+  shuffleQuestions(); shuffleOptions();
+  $("rReview").innerHTML=""; $("rCert").innerHTML=""; updateBar(); show("vStart");
+}
+
+function confetti(){
+  const c=$("confetti"); c.classList.remove("hide");
+  const x=c.getContext&&c.getContext("2d");
+  if(!x){c.classList.add("hide");return;}
+  c.width=innerWidth; c.height=innerHeight;
+  const cols=["#6B4A2F","#2F8A6A","#A8402C","#E8C87A","#8A6342"];
+  let bits=Array.from({length:130},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height,
+    w:6+Math.random()*7,h:8+Math.random()*9,c:cols[(Math.random()*cols.length)|0],
+    v:1.6+Math.random()*3,r:Math.random()*6,s:(Math.random()-.5)*.2}));
+  let t=0;
+  (function loop(){t++;x.clearRect(0,0,c.width,c.height);
+    bits.forEach(b=>{b.y+=b.v;b.r+=b.s;x.save();x.translate(b.x,b.y);x.rotate(b.r);x.fillStyle=b.c;x.fillRect(-b.w/2,-b.h/2,b.w,b.h);x.restore();});
+    if(t<300)requestAnimationFrame(loop);else{x.clearRect(0,0,c.width,c.height);c.classList.add("hide");}})();
+}
+
+shuffleQuestions(); shuffleOptions(); buildGloss(); updateBar();
+</script>
+</body>
+</html>
